@@ -1,15 +1,12 @@
 import React from 'react'
-import Post from './Post/Post.js'
 import style from './styles'
-function Posts() {
+function Post() {
     const classes = style()
     return (
         <div>
-            <Post/>
-            <Post/>
-            <Post/>
+            <h1>Post</h1>
         </div>
     )
 }
 
-export default Posts
+export default Post
