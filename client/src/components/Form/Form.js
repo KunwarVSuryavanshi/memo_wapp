@@ -1,9 +1,13 @@
-import React,{useState} from 'react'
+import React,{useContext, useState, useEffect} from 'react'
 import {TextField, Button, Typography, Paper} from '@material-ui/core'
 import FileBase from 'react-file-base64'
 import styles from './style.js'
+import {UserContext} from '../../context'
 
 function Form() {
+
+    const c_CreatePost = useContext(UserContext)
+
     const [postData, setPostData] = useState({
         creator:'',
         title:'',
@@ -11,12 +15,16 @@ function Form() {
         tags:'',
         selectedFile:''
     });
+
+
     const classes = styles()
     const clear=()=>{
 
     }
-    const handleSubmit =()=>{
-
+    const handleSubmit =(e)=>{
+        e.preventDefault();
+        c_CreatePost.createPost(postData)
+        console.log(c_CreatePost.data)
     }
     return (
         <Paper className={classes.paper}>

@@ -26,9 +26,14 @@ export const DataProvider = (props)=>{
             console.log(err)
         })
     }
-
+    const createPost = (newPost)=>{
+        axios
+        .post(url,newPost)
+        .then()
+        .catch()
+    }
     return(
-        <UserContext.Provider value={data}>
+        <UserContext.Provider value={{data, createPost}}>
             {props.children}
         </UserContext.Provider>
     )
