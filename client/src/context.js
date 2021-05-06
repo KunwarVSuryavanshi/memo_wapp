@@ -20,7 +20,6 @@ export const DataProvider = (props)=>{
             console.log(res)
             console.log(datas)
             setData(datas)
-            console.log(data)
         })
         .catch((err)=>{
             console.log(err)

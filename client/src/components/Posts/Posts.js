@@ -1,15 +1,28 @@
 import React, {useContext} from 'react'
-import { DataProvider } from '../../context.js'
+import {Grid} from '@material-ui/core'
+import { DataProvider, UserContext } from '../../context.js'
 import Post from './Post/Post.js'
 import style from './styles'
 function Posts() {
     const classes = style()
-    const datas = useContext(DataProvider)
+    const datas = useContext(UserContext)
+    console.log("++++++++++")
+    console.log(datas.data)
+    const arr = datas.data
     return (
         <div>
-            <Post/>
-            <Post/>
-            <Post/>
+            <Grid className={classes.container} container alignItems="stretch" spacing={3}>
+                {
+                    arr.map((item)=>{
+                        return(
+                            <Grid key={item._id}>
+                                <Post post={item}/>
+                            </Grid>
+                        )
+                       
+                    })
+                }
+            </Grid>
         </div>
     )
 }
